@@ -13,7 +13,7 @@ jobs:
       - run: npm install
       - run: npm run build 
 
-  test: 
+  lint-and-test: 
     needs: build
     runs-on: ubuntu-latest
     steps: 
@@ -24,5 +24,7 @@ jobs:
         with:
           node-version: '18.x'
       - run: npm install
-      # Run both linting and tests
+      # Run linting
+      - run: npm run lint
+      # Run tests (replace with your actual test command if not just linting)
       - run: CI=true npm test
